@@ -1,9 +1,23 @@
 doctype html
-head
-  title Node.js app
-  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css' integrity='sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU' crossorigin='anonymous')
-  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js' integrity='sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/' crossorigin='anonymous')
-  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js' integrity='sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ' crossorigin='anonymous')
-.container
-  h1 Node.js
-  p Hello #{greeting}
+html(lang='en')
+  head
+    title About - Node.js app
+    script(src='https://cdn.tailwindcss.com')
+  body(class='bg-gray-100 min-h-screen')
+    nav(class='bg-white shadow-sm')
+      .max-w-lg.mx-auto.px-6.py-4.flex.gap-6
+        a(href='/' class='text-sm font-medium text-gray-600 hover:text-gray-900') Home
+        a(href='/about' class='text-sm font-medium text-gray-900 border-b-2 border-gray-800 pb-0.5') About
+    .max-w-lg.mx-auto.px-6.py-10
+      .bg-white.rounded-2xl.shadow-md.p-10
+        h1(class='text-3xl font-bold text-gray-800 mb-2') About
+        p(class='text-gray-500 mb-6') Hey there, #{greeting} Welcome to this Node.js sample app.
+        .border-t.pt-6
+          h2(class='text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3') Environment
+          .flex.flex-col.gap-2
+            .flex.justify-between
+              span(class='text-sm text-gray-500') Platform
+              span(class='text-sm font-medium text-gray-800') #{platform}
+            .flex.justify-between
+              span(class='text-sm text-gray-500') Secret Message
+              span(class='text-sm font-medium text-gray-800') #{secretMessage}

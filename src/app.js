@@ -2,11 +2,17 @@ const express = require("express");
 let app = new express();
 let path = require("path");
 
+app.use(function(req, res, next) {
+    res.locals.platform = process.env.PLATFORM || "";
+    res.locals.secretMessage = process.env.SECRET_MESSAGE || "";
+    next();
+});
+
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views");
 
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname + "/src/index.html"));
+    res.sendFile(path.join(__dirname + "/index.html"));
 });
 
 app.get("/about", function(req, res) {
@@ -33,7 +39,7 @@ app.all("*", function(req, res) {
     res.send("What're you trying to do?");
 });
 
-let port = 1234;
+let port = process.env.PORT || 1234;
 app.listen(port, function() {
     console.log("Server started listening at http://localhost:" + port);
 });
